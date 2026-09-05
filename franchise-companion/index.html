@@ -87,6 +87,8 @@ html{scroll-behavior:smooth;}
 /* persistent reach-out */
 .reachfab{position:fixed;right:16px;bottom:16px;z-index:98;font-family:var(--med);text-transform:uppercase;letter-spacing:.08em;font-size:11px;color:#fff;background:var(--gold-d);padding:11px 17px;border-radius:24px;box-shadow:0 3px 12px rgba(0,0,0,.32);text-decoration:none;}
 .reachfab:hover{background:#8a6a1b;}
+.getoast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(8px);background:var(--ink);color:#fff;font-family:var(--med);font-size:13px;padding:11px 18px;border-radius:22px;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:120;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;max-width:90vw;text-align:center;}
+.getoast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 .navpanel .reachlink{font-family:var(--med);color:var(--gold-d);}
 .navpanel .navq{display:block;font-family:var(--body);font-style:normal;color:var(--ink);font-size:12px;line-height:1.32;padding:8px 16px;margin:5px 12px;border-left:3px solid var(--gold);background:#fdf8ec;text-decoration:none;border-radius:0 4px 4px 0;}
 .navpanel .navq i{font-style:italic;}
@@ -176,6 +178,7 @@ html{scroll-behavior:smooth;}
   html,body{background:#fff;}
   .nav{display:none;}
   .reachfab{display:none;}
+  .getoast{display:none;}
   .welcomeband{display:none;}
   .page{margin:0;box-shadow:none;page-break-after:always;}
   .page:last-child{page-break-after:auto;}
@@ -241,10 +244,10 @@ html{scroll-behavior:smooth;}
     <a href="#ch5"><span class="n">5</span>Cut, Don't Boost</a><a href="#ch6"><span class="n">6</span>You, First</a><a href="#ch7"><span class="n">7</span>What You Built Instead</a><a href="#ch8"><span class="n">8</span>What You've Settled For</a>
     <div class="grp p3">Part III &middot; Operational Intelligence</div>
     <a href="#ch9"><span class="n">9</span>As If It Were Theirs</a><a href="#ch10"><span class="n">10</span>Celebration</a><a href="#ch11"><span class="n">11</span>Coaching Intelligence</a><a href="#ch12"><span class="n">12</span>Training Intelligence</a><a href="#ch13"><span class="n">13</span>Unwatched</a>
-    <div class="last"><a href="#closing">A last thing, just between us</a><a class="navq" href="#careenough">The closing question</a><a class="reachlink" href="mailto:davide@davidedigiorgio.com?subject=Good%20Enough%20Franchise%20Companion">Send Davide a note</a></div>
+    <div class="last"><a href="#closing">A last thing, just between us</a><a class="navq" href="#careenough">The closing question</a><a class="reachlink" href="mailto:franchisecompanion@davidedigiorgio.com?subject=Good%20Enough%20Franchise%20Companion" onclick="reachOut(event)">Send Davide a note</a></div>
   </div>
 </details>
-<a class="reachfab" id="reachfab" hidden href="mailto:davide@davidedigiorgio.com?subject=Good%20Enough%20Franchise%20Companion">Send Davide a note</a>
+<a class="reachfab" id="reachfab" hidden href="mailto:franchisecompanion@davidedigiorgio.com?subject=Good%20Enough%20Franchise%20Companion" onclick="reachOut(event)">Send Davide a note</a><div class="getoast" id="getoast" hidden></div>
 
 <div class="welcomeband" id="welcome">
   <div class="gehero">
@@ -668,6 +671,8 @@ html{scroll-behavior:smooth;}
 </div>
 <script>
 function openCompanion(e){if(e)e.preventDefault();var c=document.getElementById('companion');if(c)c.hidden=false;var n=document.getElementById('nav');if(n)n.hidden=false;var f=document.getElementById('reachfab');if(f)f.hidden=false;var cov=document.getElementById('cover');if(cov)setTimeout(function(){cov.scrollIntoView({behavior:'smooth',block:'start'});},40);}
-function shareBook(e){if(e)e.preventDefault();var u="https://davidedigiorgio.com/good-enough";var t="Reading Good Enough by Davide Di Giorgio.";if(navigator.share){navigator.share({title:"Good Enough",text:t,url:u}).catch(function(){});}else{window.location.href="mailto:?subject="+encodeURIComponent("Good Enough")+"&body="+encodeURIComponent(t+" "+u);}}
+function showToast(m){var t=document.getElementById('getoast');if(!t)return;t.textContent=m;t.hidden=false;void t.offsetWidth;t.classList.add('show');clearTimeout(window.__gt);window.__gt=setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.hidden=true;},320);},3400);}
+function reachOut(e){if(e)e.preventDefault();var a="franchisecompanion@davidedigiorgio.com";try{window.location.href="mailto:"+a+"?subject="+encodeURIComponent("Good Enough Franchise Companion");}catch(_ ){}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(a).then(function(){showToast("Email copied \u2014 "+a);}).catch(function(){showToast("Write me at "+a);});}else{showToast("Write me at "+a);}}
+function shareBook(e){if(e)e.preventDefault();var u="https://davidedigiorgio.com/good-enough";var t="I'm reading Good Enough by Davide Di Giorgio.";if(navigator.share){navigator.share({title:"Good Enough",text:t,url:u}).catch(function(){});}else if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){showToast("Link copied \u2014 share it anywhere");}).catch(function(){showToast(u);});}else{showToast(u);}}
 </script>
 </body></html>
