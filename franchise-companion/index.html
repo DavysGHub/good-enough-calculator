@@ -291,8 +291,8 @@ html{scroll-behavior:smooth;}
       <div class="wsharemenu" id="wsharemenu" role="menu" hidden>
         <div class="wsm-note">These share the book link. I welcome your own share too: a photo, a line that stopped you, or what you're taking into your week. Thank you for believing that there's something beyond good enough.</div>
         <button type="button" role="menuitem" class="wsm-native" onclick="shareNative()" hidden>Share via your device&hellip;</button>
-        <button type="button" role="menuitem" onclick="shareCopy()">Copy link</button>
-        <a role="menuitem" href="#" onclick="return shareEmail()">Email it</a>
+        <button type="button" role="menuitem" onclick="shareCopy()">Copy link</button><a role="menuitem" href="#" onclick="return shareEmail()">Email it</a>
+        
         <a role="menuitem" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on LinkedIn</a>
         <a role="menuitem" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=I%27m%20reading%20Good%20Enough%20by%20Davide%20Di%20Giorgio.&url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Post on X</a><a role="menuitem" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on Facebook</a>
       </div>
@@ -314,6 +314,9 @@ html{scroll-behavior:smooth;}
 .xmore em{display:block;font-style:normal;font-size:12.5px;color:#8a7f63;margin-top:2px;}
 .xmore a::after{content:" \2192";color:var(--gold-d);}
 @media(max-width:560px){.xmore{grid-template-columns:1fr;}}
+.xreview{text-align:center;margin:18px 0 2px;background:#FBF3DC;border:1px solid #E9B42A;border-radius:14px;padding:22px 26px;}
+.xreview p{font-size:14px;line-height:1.6;color:#3a3524;margin:0 auto 14px;max-width:52ch;}
+.xreview .xbtn{background:#272D4A;color:#fff;}
 @media print{.xconnect{display:none !important;}}
 </style>
 <section class="xconnect">
@@ -327,11 +330,13 @@ html{scroll-behavior:smooth;}
         <a class="xig" href="https://instagram.com/beingunapologetic" target="_blank" rel="noopener">Let's connect on Instagram &rarr;</a>
       </div>
     </div>
+    <div class="xreview">
+      <p>If Good Enough lands for you, the next most powerful thing you can do is help the next leader find it. A few honest words on Amazon are all it takes, and I&rsquo;m grateful for you and for believing there&rsquo;s something beyond good enough.</p>
+      <a class="xbtn" href="https://davidedigiorgio.com/good-enough" target="_blank" rel="noopener">Leave a 5-star review on Amazon &rarr;</a>
+    </div>
     <div class="xmore">
-      <a href="https://davidedigiorgio.com" target="_blank" rel="noopener"><span>More of the work</span><em>davidedigiorgio.com</em></a>
       <a href="https://davidedigiorgio.com/speaking" target="_blank" rel="noopener"><span>Speaking &amp; masterclasses</span><em>Bring this to your wider team</em></a>
       <a href="https://www.ted.com/talks/davide_di_giorgio_the_real_power_of_choice_overcoming_comparanoia" target="_blank" rel="noopener"><span>Watch the TEDx</span><em>Overcoming Comparanoia&trade;</em></a>
-      <a href="https://davidedigiorgio.com/good-enough" target="_blank" rel="noopener"><span>The book</span><em>Good Enough</em></a>
     </div>
   </div>
 </section>
