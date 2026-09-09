@@ -223,9 +223,10 @@ html{scroll-behavior:smooth;}
 .welcomeband .wclose{font-family:inherit;font-style:italic;color:#5a5240;margin:20px 0 4px !important;}
 .welcomeband .wletter .wsign{font-family:inherit;font-weight:500;color:var(--ink);font-size:16px;margin:0;letter-spacing:.01em;}
 .welcomeband .bookmarknote{text-align:center;font-family:inherit;font-size:12.5px;color:#a99b72;margin:2px 0 0;}
-.getbook{text-align:center;font-family:inherit;font-size:13px;color:#4a4432;margin:14px 0 0;}
-.getbook a{color:var(--gold-d);font-weight:600;text-decoration:none;}
-.getbook a:hover{text-decoration:underline;}
+.getbook{text-align:center;background:#fff;border:2px solid #C90707;border-radius:14px;padding:20px 24px;margin:18px auto 0;max-width:560px;}
+.getbook p{font-family:"Josefin Sans","Century Gothic",sans-serif;font-weight:600;font-size:16px;color:var(--navy);margin:0 0 12px;line-height:1.4;}
+.getbook-btn{display:inline-block;background:#C90707;color:#fff;font-family:"Josefin Sans",sans-serif;font-weight:700;font-size:14px;padding:11px 24px;border-radius:30px;text-decoration:none;}
+.getbook-btn:hover{background:#a30606;}
 .welcomeband .wshare{text-align:center;padding:20px 44px 2px;}
 .welcomeband .wshare p{font-size:15px;line-height:1.6;color:#4a4432;margin:0 0 16px;text-wrap:balance;}
 .welcomeband .wsharebtn{display:inline-block;font-family:"Josefin Sans",sans-serif;font-weight:600;font-size:14px;letter-spacing:.02em;color:#fff;background:var(--gold-d);padding:12px 26px;border-radius:24px;text-decoration:none;}
@@ -233,7 +234,7 @@ html{scroll-behavior:smooth;}
 .welcomeband .wsharebtn:hover{background:#8a6a1b;}
 .wsharebtn{border:0;cursor:pointer;}
 .wsharewrap{position:relative;display:inline-block;}
-.wsharemenu{position:absolute;left:50%;transform:translateX(-50%);top:calc(100% + 8px);z-index:40;background:#fff;border:1px solid #ece3c9;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.18);padding:6px;min-width:224px;}
+.wsharemenu{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);z-index:40;background:#fff;border:1px solid #ece3c9;border-radius:12px;box-shadow:0 14px 34px rgba(0,0,0,.18);padding:6px;min-width:224px;}
 .wsharemenu[hidden]{display:none;}
 .wsharemenu>*{display:block;width:100%;box-sizing:border-box;font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;font-weight:600;color:#2a2618;background:none;border:0;border-radius:8px;padding:11px 13px;text-decoration:none;text-align:left;cursor:pointer;}
 .wsharemenu>*:hover{background:#f6efda;}
@@ -282,22 +283,9 @@ html{scroll-behavior:smooth;}
       <span class="open">Open &rarr;</span>
     </a>
     <p class="bookmarknote">Bookmark this page so you can pick the companion back up anytime.</p>
-    <p class="getbook">New to <i>Good Enough</i>, or don&rsquo;t have the book yet? <a href="https://davidedigiorgio.com/good-enough">Get the book &rarr;</a></p>
+    <div class="getbook"><p>New to <i>Good Enough</i>, or don&rsquo;t have the book yet?</p><a class="getbook-btn" href="https://davidedigiorgio.com/good-enough">Get the book &rarr;</a></div>
   </div>
-  <div class="wshare">
-    <p>If something lands while you're going through <i>Good Enough</i> and this companion, share it. A photo, a line that stopped you, an idea you're taking into your week. I'd love for it to reach the next operator who needs&nbsp;it.</p>
-    <div class="wsharewrap">
-      <button class="wsharebtn" type="button" id="wsharebtn" aria-haspopup="true" aria-expanded="false" onclick="toggleShare(event)">Share <i>Good Enough</i> &rarr;</button>
-      <div class="wsharemenu" id="wsharemenu" role="menu" hidden>
-        <div class="wsm-note">These share the book link. I welcome your own share too: a photo, a line that stopped you, or what you're taking into your week. Thank you for believing that there's something beyond good enough.</div>
-        <button type="button" role="menuitem" class="wsm-native" onclick="shareNative()" hidden>Share via your device&hellip;</button>
-        <button type="button" role="menuitem" onclick="shareCopy()">Copy link</button><a role="menuitem" href="#" onclick="return shareEmail()">Email it</a>
-        
-        <a role="menuitem" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on LinkedIn</a>
-        <a role="menuitem" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=I%27m%20reading%20Good%20Enough%20by%20Davide%20Di%20Giorgio.&url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Post on X</a><a role="menuitem" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on Facebook</a>
-      </div>
-    </div>
-  </div>
+  
 <style>
 .xconnect{max-width:820px;margin:26px auto 40px;padding:0 22px;font-family:'Muli',-apple-system,'Segoe UI',Roboto,sans-serif;}
 .xconnect .xcard{background:#fff;border:1px solid #efe6cd;border-radius:14px;padding:30px 32px 28px;box-shadow:0 18px 44px rgba(0,0,0,.08);}
@@ -317,6 +305,11 @@ html{scroll-behavior:smooth;}
 .xreview{text-align:center;margin:18px 0 2px;background:#FBF3DC;border:1px solid #E9B42A;border-radius:14px;padding:22px 26px;}
 .xreview p{font-size:14px;line-height:1.6;color:#3a3524;margin:0 auto 14px;max-width:52ch;}
 .xreview .xbtn{background:#272D4A;color:#fff;}
+.xspread{display:flex;gap:16px;align-items:stretch;margin:18px 0 2px;}
+.xspread>.xreview{flex:1;margin:0;display:flex;flex-direction:column;}
+.xspread>.xreview>p{flex:1 0 auto;}
+.xsharecard .wsharewrap{margin-top:auto;}
+@media(max-width:560px){.xspread{flex-direction:column;}}
 @media print{.xconnect{display:none !important;}}
 </style>
 <section class="xconnect">
@@ -334,9 +327,25 @@ html{scroll-behavior:smooth;}
       <a href="https://davidedigiorgio.com/speaking" target="_blank" rel="noopener"><span>Speaking &amp; masterclasses</span><em>Bring this to your wider team</em></a>
       <a href="https://www.ted.com/talks/davide_di_giorgio_the_real_power_of_choice_overcoming_comparanoia" target="_blank" rel="noopener"><span>Watch the TEDx</span><em>Overcoming Comparanoia&trade;</em></a>
     </div>
-    <div class="xreview">
+    <div class="xspread">
+      <div class="xreview">
       <p>If Good Enough lands for you, the next most powerful thing you can do is help the next leader find it. A few honest words on Amazon are all it takes, and I&rsquo;m grateful for you and for believing there&rsquo;s something beyond good enough.</p>
       <a class="xbtn" href="https://davidedigiorgio.com/good-enough" target="_blank" rel="noopener">Leave a 5-star review on Amazon &rarr;</a>
+    </div>
+      <div class="xreview xsharecard">
+        <p>If something lands while you're going through <i>Good Enough</i> and this companion, share it. A photo, a line that stopped you, an idea you're taking into your week. I'd love for it to reach the next operator who needs&nbsp;it.</p>
+        <div class="wsharewrap">
+      <button class="wsharebtn" type="button" id="wsharebtn" aria-haspopup="true" aria-expanded="false" onclick="toggleShare(event)">Share <i>Good Enough</i> &rarr;</button>
+      <div class="wsharemenu" id="wsharemenu" role="menu" hidden>
+        <div class="wsm-note">These share the book link. I welcome your own share too: a photo, a line that stopped you, or what you're taking into your week. Thank you for believing that there's something beyond good enough.</div>
+        <button type="button" role="menuitem" class="wsm-native" onclick="shareNative()" hidden>Share via your device&hellip;</button>
+        <button type="button" role="menuitem" onclick="shareCopy()">Copy link</button><a role="menuitem" href="#" onclick="return shareEmail()">Email it</a>
+        
+        <a role="menuitem" target="_blank" rel="noopener" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on LinkedIn</a>
+        <a role="menuitem" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=I%27m%20reading%20Good%20Enough%20by%20Davide%20Di%20Giorgio.&url=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Post on X</a><a role="menuitem" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdavidedigiorgio.com%2Fgood-enough">Share on Facebook</a>
+      </div>
+    </div>
+      </div>
     </div>
   </div>
 </section>
